@@ -1,14 +1,29 @@
 #!/usr/bin/env python3
 """ create a basic flask app """
+from flask import Flask,redirect,url_for, render_template, request
 
-from flask import Flask,redirect,url_for, render_template
 
 app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def home():
     """ returns a simple message """
-    return render_template('index.html', content="Testing")
+    return render_template('index.html')
+
+@app.route('/login', strict_slashes=False, methods=['GET', 'POST'])
+def login():
+    """ returns a simple message """
+    return render_template("login.html")
+
+@app.route('/<usr>' , strict_slashes=False) 
+def user(usr):
+    return f"<h1>{usr}</h1>"
+
+@app.route('/admin')
+def admin():
+    return redirect(url_for('home'))
+
+
 
 
 
