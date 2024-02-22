@@ -8,10 +8,10 @@ app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 def home():
     """ returns a simple message """
-    return render_template('index.html')
+    return render_template('index.html', content="Testing")
 
 
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="3000")
+    app.run(host="0.0.0.0", debug=True, port="3000")
