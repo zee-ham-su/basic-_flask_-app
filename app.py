@@ -20,6 +20,9 @@ def login():
         session["user"] = user
         return redirect(url_for("user", username=user))
     else:
+        if "user" in session:
+            return redirect(url_for("user", username=session["user"]))
+        
         return render_template('login.html')
 
 
