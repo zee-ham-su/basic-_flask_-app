@@ -24,13 +24,6 @@ def login():
 def user(usr):
     return f"<h1>{usr}</h1>"
 
-@app.route('/admin')
-def admin():
-    return redirect(url_for('home'))
-
-
-
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True, port="3000")
