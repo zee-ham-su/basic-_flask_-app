@@ -31,6 +31,12 @@ def user(username):
     else:
         return redirect(url_for('login'))
 
+@app.route('/logout', strict_slashes=False)
+def logout():
+    session.pop("user", None)
+    return redirect(url_for('login'))
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True, port="3000")
