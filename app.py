@@ -16,21 +16,21 @@ def home():
 def login():
     """ returns a simple message """
     if request.method == 'POST':
-        user_name = request.form['nm']
-        session["user"] = user_name  # Corrected variable name
-        return redirect(url_for("user"))
+        user = request.form['nm']
+        session["user"] = user
+        return redirect(url_for("user", username=user))
     else:
         return render_template('login.html')
 
 
-
-@app.route('/<usr>', strict_slashes=False) 
-def user(usr):
+@app.route('/<username>', strict_slashes=False)
+def user(username):
     if "user" in session:
-        usr = session["user"]
-        return f"<h1>{usr}</h1>"
+        user = session["user"]
+        return f"<h1>{user}</h1>"
     else:
         return redirect(url_for('login'))
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True, port="3000")
