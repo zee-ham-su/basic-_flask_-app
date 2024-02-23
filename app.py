@@ -17,10 +17,11 @@ def login():
     """ returns a simple message """
     if request.method == 'POST':
         user_name = request.form['nm']
-        session["user"] = user
-        return redirect(url_for('user'))
+        session["user"] = user_name  # Corrected variable name
+        return redirect(url_for("user"))
     else:
         return render_template('login.html')
+
 
 
 @app.route('/<usr>', strict_slashes=False) 
