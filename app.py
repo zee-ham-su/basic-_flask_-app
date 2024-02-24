@@ -17,7 +17,7 @@ def home():
 
 @app.route('/login', strict_slashes=False, methods=['GET', 'POST'])
 def login():
-    """ returns a simple message """
+    """ login route """
     if request.method == 'POST':
         session.permanent = True
         user = request.form['nm']
@@ -40,6 +40,8 @@ def user(username):
 
 @app.route('/logout', strict_slashes=False)
 def logout():
+    """ logout route
+    """
     session.pop("user", None)
     return redirect(url_for('login'))
 
