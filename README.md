@@ -10,7 +10,8 @@ In this tutorial, we will learn how to build a basic Flask application. We will 
 - Setting up a Flask project
 - Creating routes and handling requests
 - Rendering templates
-- Working with forms
+- Working with forms(log in and log out forms)
+- sessions
 - Connecting to a database
 - Deploying the application
 
