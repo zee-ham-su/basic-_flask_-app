@@ -43,7 +43,7 @@ def logout():
     """ logout route
     """
     session.pop("user", None)
-    flash("You have been logged out", "info")
+    flash("You have been logged out!", "info")
     return redirect(url_for('login'))
 
 
