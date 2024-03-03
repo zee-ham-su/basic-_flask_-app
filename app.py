@@ -40,7 +40,7 @@ def user(username):
 
 @app.route('/logout', strict_slashes=False)
 def logout():
-    """ logout route
+    """ logout user route 
     """
     session.pop("user", None)
     flash("You have been logged out!", "info")
